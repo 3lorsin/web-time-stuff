@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+    background-color: #000;
+    color: #ff0000;
+}
+.container
+{
+    margin:2%;
+    background-color:#888888;
+    width:30%;
+    padding-bottom:30%; /* relative size and position on page  */
+    float: left;
+    position:relative;  /* coord system stop */
+    top: 0px; /* IE? */
+}
+.tx
+{       
+    width:100%;        // +1 to @RonM
+    position: absolute;
+    text-align: center;
+    padding-top:100%;
+    -webkit-transform: translateY(-50%); /* child now centers itself relative to the midline based on own contents */
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(Dx=0,Dy=0)'; /*IE8 */
+    filter: progid:DXImageTransform.Microsoft.Matrix(Dx=0,Dy=0); /*IE6, IE7*/
+    transform: translateY(-50%);    
+}
+</style>
+<script type="text/javascript">
+    <!--
+    function updateTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        if (minutes < 10){
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10){
+            seconds = "0" + seconds;
+        }
+	if(hours > 11){
+            hours -= 12;
+        }
+        var v = hours + ":" + minutes + ":" + seconds + " ";
+        if(hours > 11){
+            v+="PM";
+        } else {
+            v+="AM"
+        }
+        setTimeout("updateTime()",1000);
+        document.getElementById('time').innerHTML=v;
+    }
+    updateTime();
+    //-->
+</script>
+<title>System Time</title>
+</head>
+<body>
+<div class=“container”>
+    <div class=“tx”><h4>Current Time: <span id="time"></span></h4></div>
+</div>
+</body>
+</html>
